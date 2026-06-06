@@ -103,6 +103,72 @@ p { margin: 0; color: #ceb889; }
   display: block;
 }
 
+.section-gallery {
+  border-top: 1px solid #8f6c2a;
+  background: #050505;
+  padding-bottom: 2.4rem;
+}
+
+.gallery-intro {
+  margin: 0 0 1.2rem;
+  max-width: 640px;
+  color: #ccb17b;
+}
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 55s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.marquee-item {
+  margin: 0;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid #8f6c2a;
+  background: #0a0a0a;
+}
+
+.marquee-item img {
+  display: block;
+  height: clamp(120px, 18vw, 180px);
+  width: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    overflow-x: auto;
+    max-width: 100%;
+    padding-inline: 1rem;
+    scrollbar-width: thin;
+  }
+}
+
 .closing {
   padding: 3.8rem 0 4.3rem;
   background: #060606;
